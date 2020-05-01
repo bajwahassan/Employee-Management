@@ -1,0 +1,32 @@
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>Log In</title>
+
+      <link rel="stylesheet" type="text/css" href="public/stylesheets/normalize.css">
+</head>
+
+<body style="background-color:#e6e6e6;">
+  <form action="/login" method="post">
+
+    <h1>Welcome to Employee Management!</h1>
+
+    <h2>Please Log In below</h1>
+
+      <fieldset>
+        <legend>Your Log In Credentials</legend>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Email">
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Password" name="password">
+        <br><br>
+
+        <input type="submit" name="submit" value="Log In">
+      </fieldset>
+
+  </form>
+</body>
