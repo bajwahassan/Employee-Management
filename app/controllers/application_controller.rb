@@ -1,11 +1,25 @@
 class ApplicationController < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
 
-  configure do
+
     set :public_folder, 'public'
-    set :views, 'app/views'
+    # set :views, 'app/views'
+    set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions
     set :session_secret, 'password_secure'
-  end
+  
+
+
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      Organization.find(session[:user_id])
+    end
+
+
+
 
 
 end
