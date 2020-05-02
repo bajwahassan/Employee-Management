@@ -35,13 +35,10 @@ class OrganizationController < ApplicationController
 
   get '/account' do
     redirect '/' if !logged_in?
+
     @employees = Employee.where(organization_id: session[:user_id])
-
     @user = Organization.find(session[:user_id])
-
-
     erb :"organization/account"
-
   end
 
   get '/:organization/employee/new' do
@@ -50,7 +47,7 @@ class OrganizationController < ApplicationController
   end
 
   post '/employee/new' do
-    @employee = Employee.create(name: params[:employee][:name], title: params[:employee][:title], department: params[:employee][:department], address: params[:employee][:address], phone_number: params[:employee][:phone_number], remarks: params[:employee][:remarks])
+    @employee = Employee.create(name: params[:employee][:name], title: params[:employee][:title], department: params[:employee][:department], address: params[:employee][:address], phone_number: params[:employee][:phone_number], remarks: params[:employee][:remarks], salary: params[:employee][:salary])
     @employee.organization = Organization.find(session[:user_id])
     @employee.save
     session[:employee_id] = @employee.id
