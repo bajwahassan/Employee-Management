@@ -40,9 +40,11 @@ tr:nth-child(even) {
     <th>Address</th>
     <th>Contact</th>
     <th>Remarks</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th>Salary</th>
+    <th>Options</th>
+
   </tr>
+
   <tr>
     <td> <%=@employee.name%> </td>
     <td> <%=@employee.title%> </td>
@@ -50,9 +52,19 @@ tr:nth-child(even) {
     <td> <%=@employee.address%> </td>
     <td> <%=@employee.phone_number%> </td>
     <td> <%=@employee.remarks%> </td>
-    <td> <button onclick="location.href='/employee/<%=@employee.id%>/edit'" value="button">Edit</button> </td>
-    <td> <button onclick="location.href='/employee/<%=@employee.id%>'" value="button">Delete</button> </td>
+    <td>$<%=@employee.salary%></td>
 
+    <td>
+      <div >
+        <button style ="display: inline-block" onclick="location.href='/employee/<%=@employee.id%>/edit'" value="button">Edit</button>
+        <form style ="display: inline-block" action="/employee/delete/<%=@employee.id%>" method="post">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete">
+        </form>
+      </div>
+    </td>
+
+    <!-- <td> <button onclick="location.href='/employee/<%=@employee.id%>/edit'" value="button">Edit</button> </td> -->
   </tr>
 
 
