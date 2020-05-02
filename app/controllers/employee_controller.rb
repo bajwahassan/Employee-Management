@@ -1,5 +1,9 @@
 class EmployeeController < ApplicationController
-
+  get 'employee/:id' do
+    redirect '/' if !logged_in?
+    @employee = Employee.find(params[:id])
+    erb :"employee/employe"
+  end
   get '/employee/:id/edit' do
     redirect '/' if !logged_in?
     @employee = Employee.find(params[:id])
