@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <div style="position: absolute; left: 8px; top: 8px; text-align: left">
+    <button onclick="location.href='/account'" value="button"> <b>Home</b> </button> <br><br>
+  </div>
+
+  <div style="position: absolute; right: 8px; top: 8; text-align: right">
+    <form name="logout" method="post" action="/logout">
+      <input name="submit" type="submit" value="Log Out">
+    </form>
+  </div><br><br>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Department</th>
+    <th>Address</th>
+    <th>Contact</th>
+    <th>Remarks</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr>
+    <td> <%=@employee.name%> </td>
+    <td> <%=@employee.title%> </td>
+    <td> <%=@employee.department%> </td>
+    <td> <%=@employee.address%> </td>
+    <td> <%=@employee.phone_number%> </td>
+    <td> <%=@employee.remarks%> </td>
+    <td> <button onclick="location.href='/employee/<%=@employee.id%>/edit'" value="button">Edit</button> </td>
+    <td> <button onclick="location.href='/employee/<%=@employee.id%>'" value="button">Delete</button> </td>
+
+  </tr>
+
+
+</table>
+
+</body>
+</html>
