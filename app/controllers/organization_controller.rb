@@ -34,9 +34,7 @@ class OrganizationController < ApplicationController
   end
 
   get '/account' do
-    if session[:user_id] == nil
-      redirect '/'
-    end
+    redirect '/' if !logged_in?
     @employees = Employee.where(organization_id: session[:user_id])
 
     @user = Organization.find(session[:user_id])
@@ -47,9 +45,7 @@ class OrganizationController < ApplicationController
   end
 
   get '/:organization/employee/new' do
-    if session[:user_id] == nil
-      redirect '/'
-    end
+    redirect '/' if !logged_in?
     erb :"/employee/new"
   end
 
@@ -61,6 +57,9 @@ class OrganizationController < ApplicationController
 
     redirect '/account'
   end
+
+
+
 
   get '/failure/invalidemail' do
     erb :"failures/InvalidEmail"
