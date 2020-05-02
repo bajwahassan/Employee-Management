@@ -7,7 +7,7 @@ You will be able to create a Database of your employees.
 
 ## Installation
 
-Clone this repo to your local machine by:
+Fork this repo, then to clone your local machine run:
 git clone https://github.com/hbajwaa/Employee-Management
 
 ## Usage
