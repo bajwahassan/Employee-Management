@@ -12,63 +12,61 @@
   </div><br><br>
 
 <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  body {
+    background-color:#e6e6e6
+  }
 </style>
 </head>
+
 <body>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Department</th>
+      <th>Address</th>
+      <th>Contact</th>
+      <th>Remarks</th>
+      <th>Salary</th>
+      <th>Options</th>
+    </tr>
 
+    <tr>
+      <td> <%=@employee.name%> </td>
+      <td> <%=@employee.title%> </td>
+      <td> <%=@employee.department%> </td>
+      <td> <%=@employee.address%> </td>
+      <td> <%=@employee.phone_number%> </td>
+      <td> <%=@employee.remarks%> </td>
+      <td>$<%=@employee.salary%></td>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>Department</th>
-    <th>Address</th>
-    <th>Contact</th>
-    <th>Remarks</th>
-    <th>Salary</th>
-    <th>Options</th>
+      <td>
+        <div >
+          <button style ="display: inline-block" onclick="location.href='/employee/<%=@employee.id%>/edit'" value="button">Edit</button>
+          <form style ="display: inline-block" action="/employee/delete/<%=@employee.id%>" method="post">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+          </form>
+        </div>
+      </td>
 
-  </tr>
-
-  <tr>
-    <td> <%=@employee.name%> </td>
-    <td> <%=@employee.title%> </td>
-    <td> <%=@employee.department%> </td>
-    <td> <%=@employee.address%> </td>
-    <td> <%=@employee.phone_number%> </td>
-    <td> <%=@employee.remarks%> </td>
-    <td>$<%=@employee.salary%></td>
-
-    <td>
-      <div >
-        <button style ="display: inline-block" onclick="location.href='/employee/<%=@employee.id%>/edit'" value="button">Edit</button>
-        <form style ="display: inline-block" action="/employee/delete/<%=@employee.id%>" method="post">
-          <input id="hidden" type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete">
-        </form>
-      </div>
-    </td>
-
-    <!-- <td> <button onclick="location.href='/employee/<%=@employee.id%>/edit'" value="button">Edit</button> </td> -->
-  </tr>
-
-
-</table>
+    </tr>
+  </table>
 
 </body>
 </html>

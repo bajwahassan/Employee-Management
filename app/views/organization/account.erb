@@ -1,5 +1,9 @@
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
+  <meta charset="utf-8">
+  <title>Account</title>
+
   <div style="position: absolute; left: 8px; top: 8px; text-align: left">
     <h1><%=@user.name.capitalize%> Employee Database</h1>
   </div>
@@ -10,40 +14,39 @@
     </form>
   </div>
 
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    body {
+      background-color:#e6e6e6
+    }
+  </style>
 </head>
 
-<body style="background-color:#e6e6e6;">
-
-
+<body>
   <br><br><br><br>
+
   <div style="position: absolute; left: 400px; top: 40px; text-align: left">
     <button onclick="location.href='/<%=@user.name%>/employee/new'" value="button"> <b>Add New Employee</b></button>
   </div>
 
-
-
-
   <table>
 
     <tr>
-
       <th>Name</th>
       <th>Title</th>
       <th>Department</th>
@@ -52,7 +55,6 @@ tr:nth-child(even) {
       <th>Remarks</th>
       <th>Salary</th>
       <th>Options</th>
-
     </tr>
 
     <% @employees.each.with_index do |employee| %>
@@ -76,12 +78,9 @@ tr:nth-child(even) {
           </div>
         </td>
 
-
-
       </tr>
-
     <% end %>
-
   </table>
 
 </body>
+</html>

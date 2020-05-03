@@ -1,6 +1,7 @@
 class OrganizationController < ApplicationController
 
   get '/' do
+    redirect '/account' if logged_in?
     erb :"organization/home"
   end
 
@@ -9,7 +10,7 @@ class OrganizationController < ApplicationController
     if params[:organization][:name] == "" || params[:organization][:email] == "" || params[:organization][:password] == ""
       redirect '/'
       # raise an error if user already exists with this email =>
-    elsif Organization.find_by(email: params[:email])
+    elsif Organization.find_by(email: params[:organization][:email])
       redirect '/failure/invalidemail'
     else
       Organization.create(name: params[:organization][:name], email: params[:organization][:email], password: params[:organization][:password])
@@ -19,6 +20,7 @@ class OrganizationController < ApplicationController
   end
 
   get '/login' do
+    redirect '/account' if logged_in?
     erb :"/organization/login"
   end
 
@@ -37,7 +39,7 @@ class OrganizationController < ApplicationController
     redirect '/' if !logged_in?
 
     @employees = Employee.where(organization_id: session[:user_id])
-    @user = Organization.find(session[:user_id])
+    @user = current_user
     erb :"organization/account"
   end
 
@@ -55,9 +57,6 @@ class OrganizationController < ApplicationController
     redirect '/account'
   end
 
-
-
-
   get '/failure/invalidemail' do
     erb :"failures/InvalidEmail"
   end
@@ -70,8 +69,5 @@ class OrganizationController < ApplicationController
     session.clear
     redirect '/'
   end
-
-
-
 
 end
