@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
+      
       @current_user ||= Organization.find(session[:user_id])
     end
 

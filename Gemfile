@@ -9,18 +9,11 @@ gem 'rake'
 gem 'require_all'
 gem 'rspec'
 gem 'shotgun'
+gem ""
 gem 'sinatra'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-
-group :development do
-  gem 'sqlite3', '~>1.3.6'
-end
-
-group :production do
-  gem "pg"
-end
-gem "figaro"
-
+gem 'sqlite3', '~>1.3.6'
+gem "pg"
 gem 'thin'
 gem 'tux'
 gem 'capybara'
