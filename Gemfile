@@ -9,7 +9,7 @@ gem 'rake'
 gem 'require_all'
 gem 'rspec'
 gem 'shotgun'
-gem ""
+
 gem 'sinatra'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'sqlite3', '~>1.3.6'
