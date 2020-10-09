@@ -13,7 +13,15 @@ gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 # gem 'sqlite3', '~>1.3.6'
-gem "pg"
+
+group :development do
+ gem 'sqlite3'
+end
+
+group :production do
+ gem 'pg'
+end
+
 gem 'thin'
 gem 'tux'
 gem 'capybara'
